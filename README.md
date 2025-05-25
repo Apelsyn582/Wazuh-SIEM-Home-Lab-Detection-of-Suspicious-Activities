@@ -29,7 +29,7 @@ The main objective of this home lab is to establish a practical and functional W
 ### 1. Wazuh Server Setup  
 - Ubuntu 22.04, installed via official script  (https://documentation.wazuh.com/current/quickstart.html#quickstart)
 - Enabled web dashboard + Wazuh manager
-# Dashboard and Agents
+#### Dashboard:
   📷 ![server](images/server_setup.png)
 
 ---
@@ -38,29 +38,40 @@ The main objective of this home lab is to establish a practical and functional W
 - Installed Wazuh agent on Windows + Sysmon
 - Installed and configured Sysmon (SwiftOnSecurity config)
 - Installed Linux agent
-📷 ![server](images/agents.png)
+📷 ![agents](images/agents.png)
 📷 ![sysmon](images/sysmon_event.png)
 
 ---
 
-### 3. Custom Rules
+### 3. Malicious PowerShell Script Execution  
+- Ran test malicious script on Windows  
+- Sysmon captured event, Wazuh flagged it as suspicious  using MITRE ATT&CK classifications.
+
+  Alerts: ![powershell](images/powershell.png)
+
+  #### 🧠 Summary of Techniques Used:
+   | MITRE ID       | Name                                          |
+   |----------------|-----------------------------------------------|
+   | T1105          | Ingress Tool Transfer                         |
+   | T1059.001      | Command and Scripting Interpreter: PowerShell |
+   | T1070.004      | Indicator Removal: File Deletion              |
+     ##### These alerts demonstrate how Wazuh, with the help of Sysmon, can detect key behaviors associated with malware infections and post-exploitation scripts
+
+
+---
+
+### 4. Custom Rules
 - Wazuh rules created to detect failed SSH login attempts
-- Tested against logs forwarded from Windows  
+- Tested against logs forwarded from Windows
+
 📷 ![customrules](images/custom_rules.png)
 
 ---
 
-### 4. Brute-Force Attack Simulation (Hydra)  
+### 5. Brute-Force Attack Simulation (Hydra)  
 - Kali used to run brute-force against Ubuntu via SSH  
 - Alerts generated, matched against custom rule  
 📷 ![hydra](images/hydra_alert.png)
-
----
-
-### 5. Malicious PowerShell Script Execution  
-- Ran test malicious script on Windows  
-- Sysmon captured event, Wazuh flagged it as suspicious  
-📷 ![powershell](images/malicious_script.png)
 
 ---
 
