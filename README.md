@@ -20,7 +20,7 @@ The main objective of this home lab is to establish a practical and functional W
 |------------------|-----------------------------|
 | Wazuh Server     | Log aggregation + analysis  |
 | Windows 11       | Endpoint with agent + Sysmon |
-| Ubuntu 22.04     | SSH target with agent       |
+| Debian 12        | SSH target with agent       |
 | Kali Linux       | Attacker                    |
 | Hydra            | Brute-force tool            |
 
