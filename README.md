@@ -13,6 +13,7 @@ The goal of this home lab is to establish a **practical and functional Wazuh SIE
 - Create and test custom detection rules  
 - Simulate real-world attacks and detect them  
 - **Implement automated prevention using Wazuh Active Response**
+
 📷 **Lab Diagrame** 
 ![architecture](images/architecture.png) 
 
